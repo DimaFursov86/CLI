@@ -19,7 +19,7 @@ const getContactById = async(id)=> {
 }
 
 const removeContact = async (id) => {
-    const contacts = await getAll();
+    const contacts = await listContacts();
     const idx = contacts.findIndex(item => item.id === id);
     if (idx === -1) {
         return null;
@@ -30,7 +30,7 @@ const removeContact = async (id) => {
 }
 const addContact = async(data)=> {
     const newContact = {...data, id: v4()};
-    const contacts = await getAll();
+    const contacts = await listContacts();
     contacts.push(newContact);
     await updateContacts(contacts);
     return newContact;
@@ -40,4 +40,4 @@ module.exports = {
     getContactById,
     removeContact,
     addContact,
-}
+};

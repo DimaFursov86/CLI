@@ -1,7 +1,5 @@
 const { program } = require("commander");
-// const path = require("path");
-// const contactsjsPath = path.join(__dirname, "contacts.js");
-const contactsOperations = require('./contacts');
+const contactsOperations = require('./db/contacts');
 
 
 const invokeAction = async({ action, id, name, email, phone })=> {
