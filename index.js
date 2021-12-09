@@ -1,4 +1,5 @@
-const { program } = require("commander");
+const { Command } = require("commander");
+const program = new Command();
 const contactsOperations = require('./db/contacts');
 
 
@@ -30,14 +31,14 @@ const invokeAction = async({ action, id, name, email, phone })=> {
 }
 
 program
-    .option("-a, --action <type>", "action type")
-    .option("-i, --id <type>", "contact id")
-    .option("-n, --name <type>", "contact name")
-    .option("-e, --email <type>", "contact email")
-    .option("-p, --phone <type>", "contact phone")
+    .option("-a, --action <type>", "choose type")
+    .option("-i, --id <type>", "user id")
+    .option("-n, --name <type>", "user name")
+    .option("-e, --email <type>", "user email")
+    .option("-p, --phone <type>", "user phone")
 
 program.parse(process.argv);
 
-const options = program.opts();
+const argv = program.opts();
 
-invokeAction(options);
+invokeAction(argv);
